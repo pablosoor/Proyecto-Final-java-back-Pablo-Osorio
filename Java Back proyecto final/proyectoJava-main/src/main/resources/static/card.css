@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="../static/card.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #3498db; /* Fondo de color azul */
+        }
+
+        #cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .card {
+            margin: 10px;
+        }
+    </style>
+    <title>Artículos</title>
+</head>
+<body>
+<h1>Artículos</h1>
+<section id="cards-container">
+    <!-- Ropa -->
+    <h2>Ropa</h2>
+    <div class="card">
+        <!-- Contenido de la tarjeta -->
+    </div>
+
+    <div class="card">
+        <!-- Contenido de la tarjeta -->
+    </div>
+
+    <!-- Electrónicos -->
+    <h2>Electrónicos</h2>
+    <div class="card">
+        <!-- Contenido de la tarjeta -->
+    </div>
+
+    <div class="card">
+        <!-- Contenido de la tarjeta -->
+    </div>
+
+    <!-- Comestibles -->
+    <h2>Comestibles</h2>
+    <div class="card">
+        <!-- Contenido de la tarjeta -->
+    </div>
+
+    <div class="card">
+        <!-- Contenido de la tarjeta -->
+    </div>
+</section>
+
+<script>
+    function agregarAlCarrito(id, nombre, precio) {
+        var producto = { id: id, nombre: nombre, precioBase: precio };
+        var carrito = JSON.parse(sessionStorage.getItem("carrito")) || { productos: [] };
+        carrito.productos.push(producto);
+        sessionStorage.setItem("carrito", JSON.stringify(carrito));
+        alert("Producto agregado al carrito");
+    }
+</script>
+</body>
+</html>

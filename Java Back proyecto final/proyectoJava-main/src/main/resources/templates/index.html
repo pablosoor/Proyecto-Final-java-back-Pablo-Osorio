@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            background-image: url('https://cdn1.vectorstock.com/i/1000x1000/22/50/electronics-appliances-supermarket-shop-vector-27352250.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+        }
+        h1 {
+            color: pink;
+            font-size: 100px;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
+            font-family: 'Arial', sans-serif;
+        }
+        a {
+            text-decoration: none;
+            border-right: 2px solid white;
+            color: white;
+            padding-right: 16px;
+            margin-right: 16px;
+            font-size: 30px;
+            transition: all 200ms ease;
+        }
+        a:last-child {
+            border: none;
+        }
+        a:hover {
+            color: red;
+            cursor: pointer;
+        }
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vh;
+            margin-top: 20px;
+        }
+        /* Agrega estilos para las palabras "Artículos" y "Carrito" */
+        .nav-link {
+            background-color: black;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+    </style>
+
+</head>
+<body>
+<h1>Tienda</h1>
+<div>
+
+    <a class="nav-link" th:href="@{'/articulos'}" href="">Artículos</a>
+    <a class="nav-link" th:href="@{'/carrito'}" href="">Carrito</a>
+</div>
+</body>
+</html>

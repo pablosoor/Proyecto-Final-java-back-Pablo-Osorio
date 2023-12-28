@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #e74c3c 50%, #2c3e50 50%);
+            color: white;
+            text-align: center;
+        }
+        h1 {
+            background-color: #000;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        #cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .card {
+            width: 45%;
+            margin: 10px;
+            background-color: #2c3e50;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .img-card img {
+            width: 100%;
+        }
+        .add-cart button {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .info-card p {
+            margin: 10px;
+        }
+    </style>
+    <title>Artículos</title>
+</head>
+
+<body>
+<h1>Artículos</h1>
+<section id="cards-container">
+
+    <h2>Ropa</h2>
+
+    <div class="card">
+        <div class="img-card">
+
+            <img src="/img/remera1.jpg" alt="Remera 1">
+        </div>
+        <div class="add-cart">
+            <button onclick="agregarAlCarrito('ID_ROPA_1', 'Remera 1', 'Precio Ropa 1')">Agregar al Carrito</button>
+        </div>
+        <div class="info-card">
+            <p><strong> REMERA NEGRA ALGODON 100%</strong></p>
+            <p>Precio: 100.00  ID: Remera Negra algodon 100%</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="img-card">
+
+            <img src="/img/remera2.png" alt="Remera 2">
+        </div>
+        <div class="add-cart">
+            <button onclick="agregarAlCarrito('ID_ROPA_2', 'Remera 2', 'Precio Ropa 2')">Agregar al Carrito</button>
+        </div>
+        <div class="info-card">
+            <p><strong> REMERA ROJA ALGODON 100%</strong></p>
+            <p>Precio: 100.00  ID: Remera Roja algodon 100%</p>
+        </div>
+    </div>
+
+
+    <h2>Electrónicos</h2>
+    <div class="card">
+        <div class="img-card">
+            <img src="/img/electro1.jpg" alt="Heladera Samsung">
+        </div>
+        <div class="add-cart">
+            <button onclick="agregarAlCarrito(' Samsung', 'Nombre Electrónico 1', 'Precio Electrónico 1')">Agregar al Carrito</button>
+        </div>
+        <div class="info-card">
+            <p><strong>HELADERA SAMSUNG MULTIFUNCIONES 1</strong></p>
+            <p>Precio: $10000.00  ID: heladera Samsung Negra</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="img-card">
+            <img src="/img/electro2.jpg" alt="Microondas Samsung">
+        </div>
+        <div class="add-cart">
+            <button onclick="agregarAlCarrito('ID_ELECTRONICO_2', 'Nombre Electrónico 2', 'Precio Electrónico 2')">Agregar al Carrito</button>
+        </div>
+        <div class="info-card">
+            <p><strong>MICROONDAS SAMSUNG ULTIMO MODELO</strong></p>
+            <p>Precio: $500.00  ID: Microondas Samsung</p>
+        </div>
+    </div>
+    <!-- Comestibles -->
+    <h2>Comestibles</h2>
+    <div class="card">
+        <div class="img-card">
+            <img src="/img/comida1.jpg" alt="Hamburguesa doble con queso">
+        </div>
+        <div class="add-cart">
+            <button onclick="agregarAlCarrito('ID_COMESTIBLE_1', 'Nombre Comestible 1', 'Precio Comestible 1')">Agregar al Carrito</button>
+        </div>
+        <div class="info-card">
+            <p><strong>HAMBURGUESA DOBLE CON QUESO</strong></p>
+            <p>Precio: $50.00  ID: Hamburguesa</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="img-card">
+            <img src="/img/comida2.jpg" alt="Ensalada Cesar">
+        </div>
+        <div class="add-cart">
+            <button onclick="agregarAlCarrito('ID_COMESTIBLE_2', 'Nombre Comestible 2', 'Precio Comestible 2')">Agregar al Carrito</button>
+        </div>
+        <div class="info-card">
+            <p><strong>ENSALADA CESAR CON OLIVA-MOZZARELLA-CHERRIES</strong></p>
+            <p>Precio: $100.00  ID: Ensalada</p>
+        </div>
+    </div>
+</section>
+
+<script>
+    function agregarAlCarrito(id, nombre, precio) {
+        var producto = { id: id, nombre: nombre, precioBase: precio };
+        var carrito = JSON.parse(sessionStorage.getItem("carrito")) || { productos: [] };
+        carrito.productos.push(producto);
+        sessionStorage.setItem("carrito", JSON.stringify(carrito));
+        alert("Producto agregado al carrito");
+    }
+</script>
+</body>
+</html>
+
